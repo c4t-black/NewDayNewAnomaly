@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -60,14 +61,26 @@
         </Label>
 
         <!-- ASK -->
-        <Button fx:id="askBtn" layoutX="686.0" layoutY="358.0" mnemonicParsing="false" onAction="#onAsk" prefHeight="60.0" prefWidth="120.0" text="Ask" visible="false" />
+        <Button fx:id="askBtn" layoutX="686.0" layoutY="358.0" mnemonicParsing="false" onAction="#onAsk" prefHeight="60.0" prefWidth="120.0" text="Ask" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
 
         <!-- Botões de pergunta (aparecem ao clicar em Ask) -->
-        <Button fx:id="askNomeBtn" layoutX="613.0" layoutY="289.0" mnemonicParsing="false" onAction="#onAskNome" prefHeight="45.0" prefWidth="150.0" text="Nome" visible="false" />
+        <Button fx:id="askNomeBtn" layoutX="613.0" layoutY="289.0" mnemonicParsing="false" onAction="#onAskNome" prefHeight="45.0" prefWidth="150.0" text="Nome" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
 
-        <Button fx:id="askIdadeBtn" layoutX="512.0" layoutY="366.0" mnemonicParsing="false" onAction="#onAskIdade" prefHeight="45.0" prefWidth="150.0" text="Idade" visible="false" />
+        <Button fx:id="askIdadeBtn" layoutX="512.0" layoutY="366.0" mnemonicParsing="false" onAction="#onAskIdade" prefHeight="45.0" prefWidth="150.0" text="Idade" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
 
-        <Button fx:id="askCidadeBtn" layoutX="595.0" layoutY="439.0" mnemonicParsing="false" onAction="#onAskCidade" prefHeight="45.0" prefWidth="150.0" text="Cidade de Origem" visible="false" />
+        <Button fx:id="askCidadeBtn" layoutX="595.0" layoutY="439.0" mnemonicParsing="false" onAction="#onAskCidade" prefHeight="45.0" prefWidth="150.0" text="Cidade de Origem" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
 
         <!-- Speech Player -->
         <Label fx:id="speechPlayer" alignment="CENTER" layoutX="703.0" layoutY="591.0" prefHeight="58.0" prefWidth="393.0" style="-fx-background-color: white;" styleClass="corner" text="NAME?" textFill="#2e2c2c" visible="false">
@@ -90,7 +103,10 @@
         <Button layoutX="1077.0" layoutY="436.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="128.0" text="Cidade" visible="false" />
 
         <!-- Papers -->
-        <Button fx:id="papersBtn" layoutX="760.0" layoutY="665.0" mnemonicParsing="false" onAction="#openPapers" prefHeight="86.0" prefWidth="264.0" text="Papers" visible="false" />
+        <Button fx:id="papersBtn" layoutX="760.0" layoutY="665.0" mnemonicParsing="false" onAction="#openPapers" prefHeight="86.0" prefWidth="264.0" text="Papers" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
 
         <!-- OVERLAY DO PAINEL DE PAPERS -->
         <AnchorPane fx:id="papersOverlay" layoutX="-5.0" layoutY="-10.0" prefHeight="962.0" prefWidth="1678.0" style="-fx-background-color: rgba(0,0,0,0.65);" visible="false">
@@ -144,110 +160,49 @@
         </AnchorPane>
 
         <!-- Botão Veredicto (lado direito) -->
-        <Button fx:id="verdictBtn" onAction="#openVerdict"
-                layoutX="1550.0" layoutY="450.0"
-                mnemonicParsing="false"
-                prefHeight="80.0" prefWidth="80.0"
-                text="⚖" visible="false"
-                style="-fx-background-color: #1a1a1a;
-               -fx-text-fill: #8B7355;
-               -fx-border-color: #8B7355;
-               -fx-border-width: 2;
-               -fx-font-size: 28px;
-               -fx-cursor: hand;" />
+        <Button fx:id="verdictBtn" layoutX="1550.0" layoutY="450.0" mnemonicParsing="false" onAction="#openVerdict" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: #1a1a1a;                -fx-text-fill: #8B7355;                -fx-border-color: #8B7355;                -fx-border-width: 2;                -fx-font-size: 28px;                -fx-cursor: hand;" text="⚖" visible="false" />
 
         <!-- OVERLAY DO VEREDICTO -->
-        <AnchorPane fx:id="verdictOverlay"
-                    prefHeight="962.0" prefWidth="1678.0"
-                    layoutX="-5.0" layoutY="-10.0"
-                    visible="false"
-                    style="-fx-background-color: rgba(0,0,0,0.65);">
+        <AnchorPane fx:id="verdictOverlay" layoutX="-5.0" layoutY="-10.0" prefHeight="962.0" prefWidth="1678.0" style="-fx-background-color: rgba(0,0,0,0.65);" visible="false">
 
             <!-- Painel central -->
-            <AnchorPane prefHeight="340.0" prefWidth="400.0"
-                        layoutX="639.0" layoutY="311.0"
-                        style="-fx-background-color: #1a1a1a;
-                       -fx-border-color: #8B7355;
-                       -fx-border-width: 2;">
+            <AnchorPane layoutX="639.0" layoutY="311.0" prefHeight="340.0" prefWidth="400.0" style="-fx-background-color: #1a1a1a;                        -fx-border-color: #8B7355;                        -fx-border-width: 2;">
 
                 <!-- Título -->
-                <Label text="VEREDICTO FINAL"
-                       layoutX="0" layoutY="15"
-                       prefWidth="400.0" alignment="CENTER"
-                       textFill="#8B7355">
+                <Label alignment="CENTER" layoutX="0" layoutY="15" prefWidth="400.0" text="VEREDICTO FINAL" textFill="#8B7355">
                     <font><Font name="Bernard MT Condensed" size="22.0" /></font>
                 </Label>
 
                 <!-- Botão fechar -->
-                <Button onAction="#closeVerdict" text="✕"
-                        layoutX="362.0" layoutY="10.0"
-                        prefWidth="30.0" prefHeight="26.0"
-                        style="-fx-background-color: #8B0000;
-                       -fx-text-fill: white;" />
+                <Button layoutX="362.0" layoutY="10.0" onAction="#closeVerdict" prefHeight="26.0" prefWidth="30.0" style="-fx-background-color: #8B0000;                        -fx-text-fill: white;" text="✕" />
 
                 <!-- Subtítulo -->
-                <Label fx:id="verdictSubtitle"
-                       text="Você analisou o indivíduo. Qual é o seu veredicto?"
-                       layoutX="20.0" layoutY="55.0"
-                       prefWidth="360.0" alignment="CENTER"
-                       wrapText="true" textFill="#888888">
+                <Label fx:id="verdictSubtitle" alignment="CENTER" layoutX="20.0" layoutY="55.0" prefWidth="360.0" text="Você analisou o indivíduo. Qual é o seu veredicto?" textFill="#888888" wrapText="true">
                     <font><Font name="Felix Titling" size="13.0" /></font>
                 </Label>
 
                 <!-- Botão NORMAL -->
-                <Button fx:id="btnNormal" onAction="#onVerdictNormal"
-                        layoutX="20.0" layoutY="120.0"
-                        prefHeight="100.0" prefWidth="170.0"
-                        text="✔  NORMAL"
-                        style="-fx-background-color: #0d1f0d;
-                       -fx-text-fill: #97C459;
-                       -fx-border-color: #3B6D11;
-                       -fx-border-width: 1.5;
-                       -fx-font-size: 16px;
-                       -fx-cursor: hand;" />
+                <Button fx:id="btnNormal" layoutX="20.0" layoutY="120.0" onAction="#onVerdictNormal" prefHeight="100.0" prefWidth="170.0" style="-fx-background-color: #0d1f0d;                        -fx-text-fill: #97C459;                        -fx-border-color: #3B6D11;                        -fx-border-width: 1.5;                        -fx-font-size: 16px;                        -fx-cursor: hand;" text="✔  NORMAL" />
 
                 <!-- Botão ANOMALIA -->
-                <Button fx:id="btnAnomalia" onAction="#onVerdictAnomalia"
-                        layoutX="210.0" layoutY="120.0"
-                        prefHeight="100.0" prefWidth="170.0"
-                        text="⚠  ANOMALIA"
-                        style="-fx-background-color: #1f0d0d;
-                       -fx-text-fill: #F09595;
-                       -fx-border-color: #A32D2D;
-                       -fx-border-width: 1.5;
-                       -fx-font-size: 16px;
-                       -fx-cursor: hand;" />
+                <Button fx:id="btnAnomalia" layoutX="210.0" layoutY="120.0" onAction="#onVerdictAnomalia" prefHeight="100.0" prefWidth="170.0" style="-fx-background-color: #1f0d0d;                        -fx-text-fill: #F09595;                        -fx-border-color: #A32D2D;                        -fx-border-width: 1.5;                        -fx-font-size: 16px;                        -fx-cursor: hand;" text="⚠  ANOMALIA" />
 
                 <!-- Label de confirmação -->
-                <Label fx:id="verdictConfirmLabel"
-                       layoutX="20.0" layoutY="240.0"
-                       prefWidth="360.0" alignment="CENTER"
-                       wrapText="true" visible="false"
-                       textFill="#cccccc">
+                <Label fx:id="verdictConfirmLabel" alignment="CENTER" layoutX="20.0" layoutY="240.0" prefWidth="360.0" textFill="#cccccc" visible="false" wrapText="true">
                     <font><Font name="Felix Titling" size="13.0" /></font>
                 </Label>
 
                 <!-- Botão Cancelar -->
-                <Button fx:id="verdictCancelBtn" onAction="#onVerdictCancel"
-                        layoutX="60.0" layoutY="290.0"
-                        prefHeight="35.0" prefWidth="120.0"
-                        text="Cancelar" visible="false"
-                        style="-fx-background-color: transparent;
-                       -fx-text-fill: #aaaaaa;
-                       -fx-border-color: #555555;
-                       -fx-border-width: 1;" />
+                <Button fx:id="verdictCancelBtn" layoutX="60.0" layoutY="290.0" onAction="#onVerdictCancel" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: transparent;                        -fx-text-fill: #aaaaaa;                        -fx-border-color: #555555;                        -fx-border-width: 1;" text="Cancelar" visible="false" />
 
                 <!-- Botão Confirmar -->
-                <Button fx:id="verdictConfirmBtn" onAction="#onVerdictConfirm"
-                        layoutX="220.0" layoutY="290.0"
-                        prefHeight="35.0" prefWidth="120.0"
-                        text="Confirmar" visible="false"
-                        style="-fx-background-color: #3B6D11;
-                       -fx-text-fill: white;
-                       -fx-border-width: 0;" />
+                <Button fx:id="verdictConfirmBtn" layoutX="220.0" layoutY="290.0" onAction="#onVerdictConfirm" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #3B6D11;                        -fx-text-fill: white;                        -fx-border-width: 0;" text="Confirmar" visible="false" />
 
             </AnchorPane>
         </AnchorPane>
 
     </AnchorPane>
+   <cursor>
+      <Cursor fx:constant="OPEN_HAND" />
+   </cursor>
 </ScrollPane>

@@ -3,6 +3,7 @@ com\mycompany\newdaynewanomaly\Controller\Menu\PrimaryController.class
 com\mycompany\newdaynewanomaly\Controller\Gameplay\StandBy.class
 com\mycompany\newdaynewanomaly\Models\Entity.class
 com\mycompany\newdaynewanomaly\Utils\Timer.class
+com\mycompany\newdaynewanomaly\Models\RoundResult.class
 com\mycompany\newdaynewanomaly\Utils\MasculineNames.class
 com\mycompany\newdaynewanomaly\Utils\FeminineNames.class
 com\mycompany\newdaynewanomaly\App.class
@@ -14,3 +15,5 @@ com\mycompany\newdaynewanomaly\Controller\Room\Computer\ComputerController.class
 com\mycompany\newdaynewanomaly\Controller\Room\MainRoom\RoomController.class
 com\mycompany\newdaynewanomaly\Utils\Randomizers.class
 com\mycompany\newdaynewanomaly\Controller\Gameplay\Loading.class
+com\mycompany\newdaynewanomaly\Controller\Gameplay\SummaryController.class
+com\mycompany\newdaynewanomaly\Controller\Gameplay\TableController.class

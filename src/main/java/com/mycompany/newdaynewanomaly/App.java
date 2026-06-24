@@ -1,6 +1,7 @@
 package com.mycompany.newdaynewanomaly;
 
 import com.mycompany.newdaynewanomaly.Models.Player;
+import com.mycompany.newdaynewanomaly.Models.RoundResult;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * JavaFX App
@@ -41,6 +44,8 @@ public class App extends Application {
     }
 
     public static ObservableList<Player> jogador = FXCollections.observableArrayList();
+    public static List<RoundResult> lastRoundResults = new ArrayList<>();
+    public static int lastMoneyEarned = 0;
 
     public static void main(String[] args) {
         launch();

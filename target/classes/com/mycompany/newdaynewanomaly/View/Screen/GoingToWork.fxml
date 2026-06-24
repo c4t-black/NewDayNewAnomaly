@@ -7,9 +7,9 @@
 
 <AnchorPane prefHeight="652.0" prefWidth="630.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Gameplay.Loading">
    <children>
-      <VBox alignment="CENTER" prefHeight="746.0" prefWidth="1000.0">
+      <VBox alignment="CENTER" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <ImageView fitHeight="514.0" fitWidth="581.0">
+            <ImageView fitHeight="514.0" fitWidth="581.0" preserveRatio="true">
                <image>
                   <Image url="@../../Images/Rooms/DoorOpening.gif" />
                </image>

@@ -68,9 +68,46 @@ public class Entity {
 
     public Entity(boolean isAnomaly) {
 
+        this.isAnomaly = isAnomaly;
+
         if (isAnomaly == true) {
 
-            // Construtor secundario para anomaly
+            this.gender = Randomizers.getRandomGender();
+
+
+            if ( Randomizers.HarderFalseInfo() ) {
+
+                Gender genderOposto = (this.gender == Gender.Masculino) ? Gender.Feminino : Gender.Masculino;
+
+                this.nome = Randomizers.getRandomName(genderOposto);
+
+            } else {
+
+                this.nome = Randomizers.getRandomName(this.gender);
+
+            }
+
+            if (Randomizers.HarderFalseInfo()) {
+
+                this.idade = Randomizers.getRandomAge() + 60;
+
+            }
+
+            this.idade = Randomizers.getRandomAge();
+
+            this.cidade = Randomizers.getRandomCity();
+
+            if ( Randomizers.FalseInfo() ) {
+
+                Gender genderOposto = (this.gender == Gender.Masculino) ? Gender.Feminino : Gender.Masculino;
+
+                this.LinkImage = Randomizers.getRandomPerson(genderOposto);
+
+            } else {
+
+                this.LinkImage = Randomizers.getRandomPerson(this.gender);
+
+            }
 
         }
 

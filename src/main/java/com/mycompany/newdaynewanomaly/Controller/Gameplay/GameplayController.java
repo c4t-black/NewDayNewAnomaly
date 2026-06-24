@@ -2,19 +2,26 @@ package com.mycompany.newdaynewanomaly.Controller.Gameplay;
 
 import com.mycompany.newdaynewanomaly.App;
 import com.mycompany.newdaynewanomaly.Models.Entity;
-import com.mycompany.newdaynewanomaly.Models.Player;
+import com.mycompany.newdaynewanomaly.Models.RoundResult;
 import com.mycompany.newdaynewanomaly.Utils.Randomizers;
 import com.mycompany.newdaynewanomaly.Utils.Timer;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameplayController {
 
@@ -25,13 +32,11 @@ public class GameplayController {
 
     @FXML private Button papersBtn;
     @FXML private AnchorPane papersOverlay;
-
     @FXML private Label papersNome;
     @FXML private Label papersCidade;
     @FXML private Label papersIdade;
     @FXML private Label papersGender;
 
-    // Botões de pergunta
     @FXML private Button askBtn;
     @FXML private Button askNomeBtn;
     @FXML private Button askIdadeBtn;
@@ -45,99 +50,193 @@ public class GameplayController {
     @FXML private Button btnNormal;
     @FXML private Button btnAnomalia;
 
-    private int AnomalyNumber = 0;
-
     private Entity entityAtual;
+    private boolean verdictEscolhaAnomalia;
+    private int anomalyNumber = 0;
 
-    @FXML
-    private void endWork() throws IOException {
-        App.setRoot("View/House/Room");
-    }
+    private int questionsLeft = 2;
+
+    private final List<RoundResult> resultados = new ArrayList<>();
+    private int moneyEarned = 0;
+
+
+    // -------------------------
+    // INICIALIZAÇÃO
+    // -------------------------
 
     @FXML
     public void initialize() {
-
-        entityAtual = generateAnomaly();
-        AnomalyNumber += 1;
+        anomalyNumber = 0;
 
         Timer.TaskWait(1, () -> speechRadio.setVisible(true));
         Timer.TaskWait(5, () -> speechRadio.setVisible(false));
-        Timer.TaskWait(7, () -> setImageAnomaly(entityAtual));
 
-        Timer.TaskWait(2, () -> {
-            papersBtn.setVisible(true);
-            askBtn.setVisible(true);
-            verdictBtn.setVisible(true);
+        Timer.TaskWait(7, () -> {
+            entityAtual = generateAnomaly();
+            anomalyNumber += 1;
+            setImageAnomaly(entityAtual);
+            liberarBotoes();
         });
     }
+
+    // -------------------------
+    // FLUXO DE JOGO
+    // -------------------------
 
     @FXML
     public void nextPlay() throws IOException {
 
-        if (AnomalyNumber > 4) {
+        questionsLeft = 2;
 
+        if (anomalyNumber >= 4) {
             endWork();
-
+            return;
         }
 
-        AnomalyNumber += 1;
+        bloquearBotoes();
 
         entityAtual = generateAnomaly();
+        anomalyNumber += 1;
 
-        Timer.TaskWait(3, () -> setImageAnomaly(entityAtual));
+        Timer.TaskWait(3, () -> {
+            setImageAnomaly(entityAtual);
+            liberarBotoes();
+        });
     }
 
     @FXML
     public void setImageAnomaly(Entity e) {
-
         String link = e.getLinkImage();
         pessoa.setImage(new Image(getClass().getResource(link).toExternalForm()));
     }
 
-    // Abre ou fecha os botões de pergunta
+    public Entity generateAnomaly() {
+        return new Entity(Randomizers.getRandomChance());
+    }
+
+    @FXML
+    private void endWork() throws IOException {
+
+        App.lastRoundResults = new ArrayList<>(resultados);
+        App.lastMoneyEarned = moneyEarned;
+
+        App.setRoot("View/House/Table");
+    }
+
+    // -------------------------
+    // BOTÕES DE INTERAÇÃO
+    // -------------------------
+
+    private void liberarBotoes() {
+        papersBtn.setVisible(true);
+        askBtn.setVisible(true);
+        verdictBtn.setVisible(true);
+    }
+
+    private void bloquearBotoes() {
+        papersBtn.setVisible(false);
+        askBtn.setVisible(false);
+        verdictBtn.setVisible(false);
+        askNomeBtn.setVisible(false);
+        askIdadeBtn.setVisible(false);
+        askCidadeBtn.setVisible(false);
+        speechPlayer.setVisible(false);
+        speechCreature.setVisible(false);
+    }
+
+    // -------------------------
+    // SISTEMA DE PERGUNTAS
+    // -------------------------
+
     @FXML
     public void onAsk() {
+
+        if (questionsLeft == 0) {
+
+            return;
+
+        }
+
         boolean visible = askNomeBtn.isVisible();
         askNomeBtn.setVisible(!visible);
         askIdadeBtn.setVisible(!visible);
         askCidadeBtn.setVisible(!visible);
     }
 
-    // Pergunta o Nome
     @FXML
     public void onAskNome() {
+
+        questionsLeft -= 1;
+
         fecharBotoesAsk();
-        mostrarPerguntaEResposta("Nome?", entityAtual.getNome());
+
+        if (entityAtual.getAnomaly() && Randomizers.FalseInfo()) {
+
+            mostrarPerguntaEResposta("Nome?", Randomizers.getRandomName(Randomizers.getRandomGender()));
+
+        } else {
+
+            mostrarPerguntaEResposta("Nome?", entityAtual.getNome());
+
+        }
+
+
     }
 
-    // Pergunta a Idade
     @FXML
     public void onAskIdade() {
+
+        questionsLeft -= 1;
+
         fecharBotoesAsk();
-        mostrarPerguntaEResposta("Idade?", String.valueOf(entityAtual.getIdade()));
+
+        if (entityAtual.getAnomaly() && Randomizers.FalseInfo()) {
+
+            mostrarPerguntaEResposta("Idade?", String.valueOf(Randomizers.getRandomAge()));
+
+        } else {
+
+            mostrarPerguntaEResposta("Idade?", String.valueOf(entityAtual.getIdade()));
+
+        }
+
+
     }
 
-    // Pergunta a Cidade
     @FXML
     public void onAskCidade() {
+
+        questionsLeft -= 1;
+
         fecharBotoesAsk();
-        mostrarPerguntaEResposta("Cidade de Origem?", entityAtual.getCidade());
+
+        if (entityAtual.getAnomaly() && Randomizers.FalseInfo()) {
+
+            mostrarPerguntaEResposta("Cidade de Origem?", Randomizers.getRandomCity());
+
+        } else {
+
+            mostrarPerguntaEResposta("Cidade de Origem?", entityAtual.getCidade());
+
+        }
+
+
     }
 
-    // Exibe a pergunta no speechPlayer, depois a resposta no speechCreature
     private void mostrarPerguntaEResposta(String pergunta, String resposta) {
-        // Mostra a pergunta do player
+
         speechPlayer.setText(pergunta);
         speechPlayer.setVisible(true);
 
-        // Após 2s esconde a pergunta e mostra a resposta da criatura
         Timer.TaskWait(2, () -> {
             speechPlayer.setVisible(false);
 
+
             speechCreature.setText(resposta);
+
+
             speechCreature.setVisible(true);
 
-            // Após 3s esconde a resposta
             Timer.TaskWait(3, () -> speechCreature.setVisible(false));
         });
     }
@@ -148,7 +247,10 @@ public class GameplayController {
         askCidadeBtn.setVisible(false);
     }
 
-    // Papers
+    // -------------------------
+    // PAINEL DE PAPERS
+    // -------------------------
+
     @FXML
     public void openPapers() {
         papersNome.setText(entityAtual.getNome());
@@ -172,10 +274,9 @@ public class GameplayController {
         ft.play();
     }
 
-    private boolean verdictEscolhaAnomalia;
-
-// No initialize(), libere o botão quando quiser:
-// Timer.TaskWait(2, () -> verdictBtn.setVisible(true));
+    // -------------------------
+    // PAINEL DE VEREDICTO
+    // -------------------------
 
     @FXML
     public void openVerdict() {
@@ -222,26 +323,34 @@ public class GameplayController {
     @FXML
     public void onVerdictConfirm() throws IOException {
 
-        if (verdictEscolhaAnomalia == entityAtual.getAnomaly()) {
+        boolean acertou = verdictEscolhaAnomalia == entityAtual.getAnomaly();
+
+        if (acertou) {
+
+            moneyEarned += 35;
 
             int currentMoney = App.jogador.get(0).getMoney();
-
             App.jogador.get(0).setMoney(currentMoney + 35);
-
 
         } else {
 
             float currentSanity = App.jogador.get(0).getSanity();
-
             App.jogador.get(0).setSanity(currentSanity - 10);
 
         }
 
-        nextPlay();
+
+        Timer.TaskWait(1, () -> pessoa.setImage(new Image(getClass().getResource("").toExternalForm())) );
+
+
+        resultados.add(new RoundResult(
+                entityAtual.getNome(),
+                entityAtual.getAnomaly(),
+                acertou
+        ));
 
         closeVerdict();
-
-
+        nextPlay();
     }
 
     private void mostrarConfirmacaoVerdict() {
@@ -258,13 +367,5 @@ public class GameplayController {
         verdictConfirmBtn.setVisible(false);
         btnNormal.setOpacity(1.0);
         btnAnomalia.setOpacity(1.0);
-    }
-
-    public Entity generateAnomaly () {
-
-        Entity e = new Entity(Randomizers.getRandomBoolean());
-
-        return e;
-
     }
 }

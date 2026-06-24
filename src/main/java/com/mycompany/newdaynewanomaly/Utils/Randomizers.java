@@ -86,9 +86,30 @@ public class Randomizers {
     }
 
 
-    public static Boolean getRandomBoolean() {
+    public static Boolean getRandomChance() {
 
-        return random.nextBoolean();
+        int chance = random.nextInt(100) + 1;
+
+        return chance > 65;
+
+
+    }
+
+    public static Boolean FalseInfo() {
+
+        int chance = random.nextInt(10) + 1;
+
+        return chance > 7;
+
+
+    }
+
+    public static Boolean HarderFalseInfo() {
+
+        int chance = random.nextInt(100) + 1;
+
+        return chance > 85;
+
 
     }
 }

@@ -34,7 +34,7 @@ public class StandBy {
                 new AbstractMap.SimpleEntry<>(1f, () -> DayText.setText("DA")),
                 new AbstractMap.SimpleEntry<>(1f, () -> DayText.setText("DAY")),
                 new AbstractMap.SimpleEntry<>(1f, () -> DayText.setText("DAY ")),
-                new AbstractMap.SimpleEntry<>(2f, () -> DayText.setText(currentDay)),
+                new AbstractMap.SimpleEntry<>(1f, () -> DayText.setText(currentDay)),
                 new AbstractMap.SimpleEntry<>(3f, () -> DayText.setText("..."))
 
         ), () -> {
