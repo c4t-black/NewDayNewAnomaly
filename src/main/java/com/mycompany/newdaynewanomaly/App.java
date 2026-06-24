@@ -1,6 +1,9 @@
 package com.mycompany.newdaynewanomaly;
 
+import com.mycompany.newdaynewanomaly.Models.Player;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,8 +22,12 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("View/Menu/MainMenu"));
         stage.setScene(scene);
-        stage.setFullScreen(true);              // entra em tela cheia
-        stage.setFullScreenExitHint("");
+
+        stage.setResizable(false);
+
+        stage.setWidth(1200);
+        stage.setHeight(1000);
+
         stage.show();
     }
 
@@ -32,6 +39,8 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
+    public static ObservableList<Player> jogador = FXCollections.observableArrayList();
 
     public static void main(String[] args) {
         launch();

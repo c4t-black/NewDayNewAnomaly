@@ -6,19 +6,24 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<ScrollPane blendMode="DARKEN" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="1155.0" prefWidth="1827.0" stylesheets="@../../CSS/Room.css" vbarPolicy="NEVER" vvalue="1.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Room.MainRoom.RoomController">
+<ScrollPane blendMode="DARKEN" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="942.0" prefWidth="1678.0" stylesheets="@../../CSS/Room.css" vbarPolicy="NEVER" vvalue="1.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Room.MainRoom.RoomController">
 
 
     <AnchorPane prefHeight="419.0" prefWidth="1.0" style="-fx-background-color: black;">
-
-        <!--  BACKGROUND  -->
-
-        <ImageView fitHeight="966.0" fitWidth="1670.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-
-            <Image url="@../../Images/HouseRoom.png" />
-
-        </ImageView>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+      
+              <!--  BACKGROUND  -->
+      
+              <ImageView fitHeight="966.0" fitWidth="1670.0" pickOnBounds="true" preserveRatio="true">
+      
+                  <Image url="@../../Images/Rooms/HouseRoom.png" />
+      
+              </ImageView>
+         </children>
+      </VBox>
 
 
         <!--  BOTÕES  -->
@@ -26,28 +31,23 @@
         <Button layoutX="349.0" layoutY="396.0" onAction="#switchToComputer" opacity="0.0" prefHeight="168.0" prefWidth="264.0" AnchorPane.leftAnchor="349.0" AnchorPane.topAnchor="396.0">
 
             <cursor>
-                <Cursor fx:constant="OPEN_HAND" />
+                <Cursor fx:constant="HAND" />
             </cursor>
 
         </Button>
 
 
-        <Button
-
-                onAction="#switchToWork"
-
-                layoutX="1158.0"
-                layoutY="336.0"
-                opacity="0.0"
-                prefHeight="229.0"
-                prefWidth="171.0">
+        <Button layoutX="1158.0" layoutY="336.0" onAction="#switchToWork" opacity="0.0" prefHeight="229.0" prefWidth="171.0">
 
             <cursor>
-                <Cursor fx:constant="OPEN_HAND" />
+                <Cursor fx:constant="HAND" />
             </cursor>
 
         </Button>
 
 
     </AnchorPane>
+   <cursor>
+      <Cursor fx:constant="OPEN_HAND" />
+   </cursor>
 </ScrollPane>

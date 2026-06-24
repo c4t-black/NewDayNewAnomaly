@@ -13,4 +13,7 @@ module com.mycompany.newdaynewanomaly {
 
     exports com.mycompany.newdaynewanomaly.Controller.Room.Computer;
     opens com.mycompany.newdaynewanomaly.Controller.Room.Computer to javafx.fxml;
+
+    exports com.mycompany.newdaynewanomaly.Controller.Gameplay;
+    opens com.mycompany.newdaynewanomaly.Controller.Gameplay to javafx.fxml;
 }

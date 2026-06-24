@@ -1,5 +1,5 @@
 .anchor-pane {
-    -fx-background-image: url("../Images/Computer.png");
+    -fx-background-image: url("../Images/Rooms/Computer.png");
     -fx-background-size: cover;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
@@ -7,7 +7,7 @@
 }
 
 .root {
-    -fx-background-image: url("../Images/Computer.png");
+    -fx-background-image: url("../Images/Rooms/Computer.png");
     -fx-background-size: cover;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;

@@ -3,6 +3,7 @@ package com.mycompany.newdaynewanomaly.Controller.Menu;
 import java.io.IOException;
 
 import com.mycompany.newdaynewanomaly.App;
+import com.mycompany.newdaynewanomaly.Models.Player;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 
@@ -10,7 +11,7 @@ public class PrimaryController {
 
     @FXML
     private void Play() throws IOException {
-        App.setRoot("View/House/Room");
+        App.setRoot("View/Menu/SaveMenu");
     }
 
     @FXML
@@ -29,4 +30,15 @@ public class PrimaryController {
         Platform.exit();
 
     }
+
+    // Save Menu
+
+    @FXML
+    private void StartNewGame() throws IOException {
+
+        App.jogador.add(new Player());
+
+        App.setRoot("View/Screen/StandBy");
+    }
+
 }
