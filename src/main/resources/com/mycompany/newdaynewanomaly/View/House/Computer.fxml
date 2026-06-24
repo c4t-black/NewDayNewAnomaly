@@ -9,38 +9,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="942.0" prefWidth="1744.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Room.Computer.ComputerController">
+<ScrollPane blendMode="DARKEN" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="1155.0" prefWidth="1827.0" stylesheets="@../../CSS/Room.css" vbarPolicy="NEVER" vvalue="1.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Room.Computer.ComputerController">
 
-    <content>
 
-        <AnchorPane stylesheets="@../../CSS/Computer.css">
+    <AnchorPane prefHeight="419.0" prefWidth="1.0" style="-fx-background-color: black;">
 
-            <children>
+        <!--  BACKGROUND  -->
 
-                <!-- Imagem de fundo -->
-                <ImageView fitHeight="942.0" fitWidth="1600.0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
+        <ImageView fitHeight="966.0" fitWidth="1670.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
 
-                    <image>
+            <Image url="@../../Images/Computer.png" />
 
-                        <Image url="@../../Images/Computer.png" />
+        </ImageView>
 
-                    </image>
+        <Label fx:id="TestText" alignment="CENTER" contentDisplay="CENTER" layoutX="537.0" layoutY="351.0" prefHeight="82.0" prefWidth="701.0" text="~{ TEXT }~">
+            <font>
+                <Font name="Bell MT Italic" size="58.0" />
+            </font>
+        </Label>
 
-                </ImageView>
 
-                <Button layoutX="581.0" layoutY="232.0" onAction="#test" opacity="0.36" prefHeight="313.0" prefWidth="533.0" text="COMPUTADOR GAMER" AnchorPane.leftAnchor="581.0" AnchorPane.topAnchor="232.0">
-                    <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
-                    </cursor>
-                </Button>
+        <!--  BOTÕES  -->
 
-                <Label fx:id="TestText" alignment="CENTER" contentDisplay="CENTER" layoutX="497.0" layoutY="612.0" prefHeight="82.0" prefWidth="701.0" text="~{ TEXT }~">
-                    <font>
-                        <Font name="Bell MT Italic" size="30.0" />
-                    </font>
-                </Label>
+        <Button fx:id="boto" layoutX="616.0" layoutY="230.0" onAction="#test" opacity="0.0" prefHeight="323.0" prefWidth="543.0" text="COMPUTADOR GAMER" AnchorPane.leftAnchor="616.0" AnchorPane.topAnchor="230.0">
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND" />
+            </cursor>
+        </Button>
 
-            </children>
-        </AnchorPane>
-    </content>
+      <ImageView fx:id="peixe" fitHeight="298.0" fitWidth="373.0" layoutX="739.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../Images/Peixe.gif" />
+         </image>
+      </ImageView>
+
+
+    </AnchorPane>
 </ScrollPane>

@@ -3,7 +3,10 @@ import java.io.IOException;
 import com.mycompany.newdaynewanomaly.Utils.Timer;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 public class ComputerController {
@@ -12,16 +15,33 @@ public class ComputerController {
     Label TestText;
 
     @FXML
+    Button boto;
+
+    @FXML
+    ImageView peixe;
+
+    @FXML
     private void test () {
 
-        Timer.TaskWait(5f, this::changeText);
+        changeText(". . .");
+
+
+        Timer.TaskWait(5f, this::showImage );
+
 
     }
 
     @FXML
-    private void changeText () {
+    private void changeText (String text) {
 
-        TestText.setText("Deu certo!");
+        TestText.setText(text);
+
+    }
+
+    @FXML
+    private void showImage () {
+
+        peixe.setVisible(true);
 
     }
 

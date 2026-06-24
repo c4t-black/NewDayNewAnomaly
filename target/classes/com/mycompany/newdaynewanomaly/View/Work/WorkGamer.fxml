@@ -18,7 +18,7 @@
 
         <ImageView fitHeight="966.0" fitWidth="1670.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
 
-            <Image url="@../../Images/Computer.png" />
+            <Image url="@../../Images/WorkRoom.png" />
 
         </ImageView>
 
@@ -37,11 +37,11 @@
             </cursor>
         </Button>
 
-      <ImageView fx:id="peixe" fitHeight="298.0" fitWidth="373.0" layoutX="739.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../../Images/Peixe.gif" />
-         </image>
-      </ImageView>
+        <ImageView fx:id="peixe" fitHeight="298.0" fitWidth="373.0" layoutX="739.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../../Images/Peixe.gif" />
+            </image>
+        </ImageView>
 
 
     </AnchorPane>

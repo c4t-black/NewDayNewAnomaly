@@ -14,4 +14,12 @@ public class RoomController {
 
     }
 
+    @FXML
+    private void switchToWork() throws IOException {
+
+        App.setRoot("View/Work/WorkGamer");
+
+    }
+
+
 }

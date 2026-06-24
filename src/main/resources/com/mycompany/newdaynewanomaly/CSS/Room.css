@@ -1,6 +1,18 @@
-.root {
-    -fx-background-image: url("../Images/HouseRoom.png");
-    -fx-background-size: cover;
-    -fx-background-position: center;
-    -fx-background-repeat: no-repeat;
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-background-color: black;
+    -fx-border-color: black;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: black;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: black;
+}
+
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-opacity: 0;
 }
