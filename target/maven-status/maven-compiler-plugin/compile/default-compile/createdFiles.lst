@@ -1,0 +1,4 @@
+com\mycompany\newdaynewanomaly\App.class
+module-info.class
+com\mycompany\newdaynewanomaly\Controller\PrimaryController.class
+com\mycompany\newdaynewanomaly\Controller\RoomController.class
