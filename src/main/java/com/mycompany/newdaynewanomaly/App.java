@@ -17,8 +17,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Menu/MainMenu"), 1337, 842);
+        scene = new Scene(loadFXML("View/Menu/MainMenu"));
         stage.setScene(scene);
+        stage.setFullScreen(true);              // entra em tela cheia
+        stage.setFullScreenExitHint("");
         stage.show();
     }
 

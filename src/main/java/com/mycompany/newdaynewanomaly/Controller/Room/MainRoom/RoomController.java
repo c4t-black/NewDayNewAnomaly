@@ -1,4 +1,4 @@
-package com.mycompany.newdaynewanomaly.Controller;
+package com.mycompany.newdaynewanomaly.Controller.Room.MainRoom;
 
 import java.io.IOException;
 
@@ -9,6 +9,9 @@ public class RoomController {
 
     @FXML
     private void switchToComputer() throws IOException {
-        App.setRoot("House/Computer");
+
+        App.setRoot("View/House/Computer");
+
     }
+
 }

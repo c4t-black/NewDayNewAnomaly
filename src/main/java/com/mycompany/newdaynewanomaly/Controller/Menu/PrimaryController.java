@@ -1,4 +1,4 @@
-package com.mycompany.newdaynewanomaly.Controller;
+package com.mycompany.newdaynewanomaly.Controller.Menu;
 
 import java.io.IOException;
 
@@ -9,18 +9,18 @@ import javafx.fxml.FXML;
 public class PrimaryController {
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("House/Room");
+    private void Play() throws IOException {
+        App.setRoot("View/House/Room");
     }
 
     @FXML
     private void Credits() throws IOException {
-        App.setRoot("Menu/Creditos");
+        App.setRoot("View/Menu/Creditos");
     }
 
     @FXML
     private void ReturnToMenu() throws IOException {
-        App.setRoot("Menu/MainMenu");
+        App.setRoot("View/Menu/MainMenu");
     }
 
     @FXML

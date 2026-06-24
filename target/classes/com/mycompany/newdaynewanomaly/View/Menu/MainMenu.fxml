@@ -10,16 +10,21 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-color: #2c2c2a;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.PrimaryController">
+<AnchorPane style="-fx-background-color: #2c2c2a;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Menu.PrimaryController">
 
     <!-- VBox grudado nas 4 bordas = ocupa a tela toda -->
     <VBox alignment="CENTER" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
+
+
+
         <!-- Título -->
         <Label alignment="CENTER" prefHeight="67.0" prefWidth="959.0" text="NEW DAY NEW ANOMALY" textFill="RED">
+
             <font>
                 <Font name="Century" size="54.0" />
             </font>
+
             <effect>
                 <Reflection fraction="0.87" topOpacity="0.65" />
             </effect>
@@ -27,41 +32,88 @@
             <VBox.margin>
                 <Insets bottom="60.0" />   <!-- ← espaço entre título e linha -->
             </VBox.margin>
+
         </Label>
+
+
+
+
+
 
         <!-- Linha separadora -->
         <Line endX="398.0" startX="-100.0" stroke="RED" strokeWidth="2.0" />
 
-        <!-- Botões do menu -->
+
+
+
+
+
+
+
 
         <!-- PLAY -->
-        <Button prefHeight="41.0" prefWidth="106.0" text="Play" onAction="#switchToSecondary">
+        <Button
+
+                onAction="#Play"
+
+
+                prefHeight="41.0"
+                prefWidth="106.0"
+                text="Play"
+                >
+
              <cursor>
                 <Cursor fx:constant="HAND" />
              </cursor>
+
              <font>
                 <Font name="Felix Titling" size="22.0" />
              </font>
+
         </Button>
+
 
         <!-- CREDITS -->
-        <Button prefHeight="41.0" prefWidth="120.0" text="Credits" onAction="#Credits">
+        <Button
+
+                onAction="#Credits"
+
+
+                prefHeight="41.0"
+                prefWidth="120.0"
+                text="Credits"
+                >
+
              <cursor>
                 <Cursor fx:constant="HAND" />
              </cursor>
+
              <font>
                 <Font name="Felix Titling" size="21.0" />
              </font>
+
         </Button>
 
+
         <!-- QUIT -->
-        <Button prefHeight="41.0" prefWidth="106.0" text="Quit" onAction="#quit">
+        <Button
+
+                onAction="#quit"
+
+
+                prefHeight="41.0"
+                prefWidth="106.0"
+                text="Quit"
+                >
+
              <cursor>
                 <Cursor fx:constant="HAND" />
              </cursor>
+
              <font>
                 <Font name="Felix Titling" size="21.0" />
              </font>
+
         </Button>
 
     </VBox>

@@ -1,4 +1,6 @@
+com\mycompany\newdaynewanomaly\Controller\Room\MainRoom\RoomController.class
+com\mycompany\newdaynewanomaly\Controller\Menu\PrimaryController.class
 com\mycompany\newdaynewanomaly\App.class
 module-info.class
-com\mycompany\newdaynewanomaly\Controller\PrimaryController.class
-com\mycompany\newdaynewanomaly\Controller\RoomController.class
+com\mycompany\newdaynewanomaly\Controller\Room\Computer\ComputerController.class
+com\mycompany\newdaynewanomaly\Utils\Timer.class
