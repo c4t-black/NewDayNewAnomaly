@@ -1,6 +1,7 @@
 package com.mycompany.newdaynewanomaly.Controller.Gameplay;
 
 import com.mycompany.newdaynewanomaly.App;
+import com.mycompany.newdaynewanomaly.DAO.PlayerDAO;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +15,14 @@ import java.io.IOException;
 public class TableController {
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
 
         int CurrentDay = App.jogador.get(0).getCurrentDay();
 
         App.jogador.get(0).setCurrentDay(CurrentDay + 1);
+
+        // DEVE SALVAR DADOS NO BANCO NESTA LINHA DE CODIGO
+        new PlayerDAO().save(App.jogador.get(0));
 
         Platform.runLater(this::abrirResumo);
     }

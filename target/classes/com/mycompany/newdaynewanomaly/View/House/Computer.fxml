@@ -1,54 +1,266 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Box?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane blendMode="DARKEN" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="1155.0" prefWidth="1827.0" stylesheets="@../../CSS/Room.css" vbarPolicy="NEVER" vvalue="1.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Room.Computer.ComputerController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="940.0" prefWidth="905.0" stylesheets="@../../CSS/store-retro.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Room.Computer.ComputerController">
+    <tabs>
+        <Tab text="Store">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="566.0" prefWidth="949.0" styleClass="anchor-pane">
+                    <children>
+
+                        <Group> <!-- COLA -->
+
+                            <children>
+                                <Label alignment="TOP_LEFT" layoutX="227.0" layoutY="155.0" prefHeight="21.0" prefWidth="151.0" text="cures 10 sanity when">
+                                    <font>
+                                        <Font name="Britannic Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Button layoutX="225.0" layoutY="109.0" mnemonicParsing="false" onAction="#buyCola" prefHeight="31.0" prefWidth="54.0" text="BUY" />
+                                <Label layoutX="231.0" layoutY="66.0" prefHeight="39.0" prefWidth="69.0" text="3 $">
+                                    <font>
+                                        <Font name="Britannic Bold" size="28.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="87.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../Images/items/CocaCola.png" />
+                                    </image>
+                                </ImageView>
+                                <Label alignment="TOP_LEFT" layoutX="227.0" layoutY="174.0" prefHeight="19.0" prefWidth="142.0" text="drank.">
+                                    <font>
+                                        <Font name="Britannic Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+
+                        </Group>
+
+                        <Group> <!-- Chips -->
+                            <children>
+                                <Button layoutX="230.0" layoutY="351.0" mnemonicParsing="false" onAction="#buyChips" prefHeight="31.0" prefWidth="54.0" text="BUY" />
+                                <Label alignment="TOP_LEFT" layoutX="227.0" layoutY="412.0" prefHeight="21.0" prefWidth="165.0" text="of sanity when eaten">
+                                    <font>
+                                        <Font name="Britannic Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="TOP_LEFT" layoutX="227.0" layoutY="393.0" prefHeight="19.0" prefWidth="173.0" text="cures a random amount">
+                                    <font>
+                                        <Font name="Britannic Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="230.0" layoutY="313.0" prefHeight="38.0" prefWidth="68.0" text="15 $">
+                                    <font>
+                                        <Font name="Britannic Bold" size="28.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../Images/items/Chips.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Group>
+
+                        <Group layoutX="10.0" layoutY="10.0"> <!-- BigCola -->
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="430.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../Images/items/BigCocaCola.png" />
+                                    </image>
+                                </ImageView>
+                                <Label alignment="TOP_LEFT" layoutX="546.0" layoutY="154.0" prefHeight="21.0" prefWidth="159.0" text="cures 20 sanity when">
+                                    <font>
+                                        <Font name="Britannic Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="TOP_LEFT" layoutX="546.0" layoutY="173.0" prefHeight="19.0" prefWidth="142.0" text="drank.">
+                                    <font>
+                                        <Font name="Britannic Bold" size="14.0" />
+                                    </font>
+                                </Label>
+
+                                <Button layoutX="549.0" layoutY="97.0" mnemonicParsing="false" onAction="#buyBigCola" prefHeight="31.0" prefWidth="54.0" text="BUY" />
+
+                                <Label layoutX="555.0" layoutY="59.0" prefHeight="39.0" prefWidth="80.0" text="6 $">
+                                    <font>
+                                        <Font name="Britannic Bold" size="28.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Group>
+
+                        <!-- Others -->
+
+                        <Label layoutX="61.0" layoutY="14.0" prefHeight="39.0" prefWidth="632.0" styleClass="header-label" text="BUY NOW!! LIMITED EDITION DRINK!!!!">
+                            <font>
+                                <Font name="Bookshelf Symbol 7" size="28.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="61.0" layoutY="250.0" prefHeight="38.0" prefWidth="475.0" styleClass="header-label" text="CHIPS n' FUN!!!">
+                            <font>
+                                <Font name="Bookshelf Symbol 7" size="28.0" />
+                            </font>
+                        </Label>
+
+                        <Box depth="100" drawMode="LINE" height="100" layoutX="131.0" layoutY="141.0" scaleX="1.4" scaleY="1.5" styleClass="box" width="100">
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </Box>
+                        <Box depth="100" drawMode="LINE" height="100" layoutX="466.0" layoutY="145.0" scaleX="1.4" scaleY="1.5" styleClass="box" width="100">
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </Box>
+                        <Box depth="100" drawMode="LINE" height="100" layoutX="131.0" layoutY="373.0" scaleX="1.4" scaleY="1.5" styleClass="box" width="100">
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </Box>
+                  <Button layoutX="25.0" layoutY="793.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
+
+                  <Label fx:id="PlayerMoney" layoutX="777.0" layoutY="14.0" prefHeight="39.0" prefWidth="209.0" text="\$: ">
+                     <font>
+                        <Font name="Britannic Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="56.0" layoutY="478.0" prefHeight="39.0" prefWidth="632.0" styleClass="header-label" text="NEW EYE GLASSES!">
+                     <font>
+                        <Font name="Bookshelf Symbol 7" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" layoutX="56.0" layoutY="529.0" prefHeight="19.0" prefWidth="443.0" text="Allow you to look the eyes of a person to see is she is infected or not">
+                     <font>
+                        <Font name="Britannic Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" layoutX="56.0" layoutY="548.0" prefHeight="19.0" prefWidth="443.0" text="Some anomalies might not be seem normal tho.">
+                     <font>
+                        <Font name="Britannic Bold" size="14.0" />
+                     </font>
+                  </Label>
 
 
-    <AnchorPane prefHeight="419.0" prefWidth="1.0" style="-fx-background-color: black;">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/items/Glasses.png" />
+                     </image>
+                  </ImageView>
 
-        <!--  BACKGROUND  -->
+                  <Box depth="100" drawMode="LINE" height="100" layoutX="131.0" layoutY="651.0" scaleX="1.4" scaleY="1.5" styleClass="box" width="100">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Box>
 
-        <ImageView fitHeight="966.0" fitWidth="1670.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                  <Button fx:id="glassButton" layoutX="229.0" layoutY="642.0" mnemonicParsing="false" onAction="#buyGlasses" prefHeight="31.0" prefWidth="74.0" text="BUY" />
 
-            <Image url="@../../Images/Rooms/Computer.png" />
+                  <Label layoutX="232.0" layoutY="604.0" prefHeight="38.0" prefWidth="68.0" text="50 $">
+                     <font>
+                        <Font name="Britannic Bold" size="28.0" />
+                     </font>
+                  </Label>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
 
-        </ImageView>
-
-        <Label fx:id="TestText" alignment="CENTER" contentDisplay="CENTER" layoutX="537.0" layoutY="351.0" prefHeight="82.0" prefWidth="701.0" text="~{ TEXT }~">
-            <font>
-                <Font name="Bell MT Italic" size="58.0" />
-            </font>
-        </Label>
-
-
-        <!--  BOTÕES  -->
-
-        <Button fx:id="boto" layoutX="616.0" layoutY="230.0" onAction="#test" opacity="0.0" prefHeight="323.0" prefWidth="543.0" text="COMPUTADOR GAMER" AnchorPane.leftAnchor="616.0" AnchorPane.topAnchor="230.0">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </Button>
-
-      <ImageView fx:id="peixe" fitHeight="298.0" fitWidth="373.0" layoutX="739.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../../Images/Rooms/Peixe.gif" />
-         </image>
-      </ImageView>
-      <cursor>
-         <Cursor fx:constant="OPEN_HAND" />
-      </cursor>
-
-
-    </AnchorPane>
-   <cursor>
-      <Cursor fx:constant="CLOSED_HAND" />
-   </cursor>
-</ScrollPane>
+        <Tab text="Inventory">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="anchor-pane">
+                    <children>
+                        <Label layoutX="72.0" layoutY="20.0" prefHeight="38.0" prefWidth="475.0" styleClass="header-label" text="ORDERS PLACED:">
+                            <font>
+                                <Font name="Bookshelf Symbol 7" size="28.0" />
+                            </font>
+                        </Label>
+                        <Group styleClass="group">
+                            <children>
+                                <Label fx:id="amountCola" layoutX="161.0" layoutY="159.0" prefHeight="33.0" prefWidth="160.0" text=": ">
+                                    <font>
+                                        <Font name="Bodoni MT Black" size="28.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="54.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../Images/items/CocaCola.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="161.0" layoutY="111.0" prefHeight="27.0" prefWidth="111.0" text="COLA">
+                                    <font>
+                                        <Font name="Bodoni MT Black" size="28.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Group>
+                        <Group layoutX="10.0" layoutY="10.0" styleClass="group">
+                            <children>
+                                <Label fx:id="amountChips" layoutX="536.0" layoutY="149.0" prefHeight="33.0" prefWidth="160.0" text=":">
+                                    <font>
+                                        <Font name="Bodoni MT Black" size="28.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="364.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../Images/items/Chips.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="536.0" layoutY="103.0" prefHeight="27.0" prefWidth="111.0" text="CHIPS">
+                                    <font>
+                                        <Font name="Bodoni MT Black" size="28.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Group>
+                        <Group layoutX="10.0" layoutY="10.0" styleClass="group">
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="52.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../Images/items/BigCocaCola.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="145.0" layoutY="298.0" prefHeight="33.0" prefWidth="160.0" text="BIG COLA">
+                                    <font>
+                                        <Font name="Bodoni MT Black" size="28.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="amountBigCola" layoutX="145.0" layoutY="351.0" prefHeight="33.0" prefWidth="160.0" text=": ">
+                                    <font>
+                                        <Font name="Bodoni MT Black" size="28.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Group>
+                  <Button layoutX="25.0" layoutY="612.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
+                  <ImageView fitHeight="168.0" fitWidth="201.0" layoutX="364.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/items/Glasses.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="548.0" layoutY="312.0" prefHeight="33.0" prefWidth="329.0" text="Experimental Glasses">
+                     <font>
+                        <Font name="Bodoni MT Black" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="hasGlasses" layoutX="548.0" layoutY="365.0" prefHeight="33.0" prefWidth="160.0" text="-">
+                     <font>
+                        <Font name="Bodoni MT Black" size="28.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="38.0" layoutY="695.0" mnemonicParsing="false" onAction="#cheat" text="cheat" />
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

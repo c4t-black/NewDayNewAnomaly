@@ -20,24 +20,30 @@ public class PrimaryController {
     }
 
     @FXML
+    private void Rank() throws IOException {
+        App.setRoot("View/Menu/Rank");
+    }
+
+    @FXML
+    private void LoadSaves() throws IOException {
+        App.setRoot("View/Menu/Saves");
+    }
+
+    @FXML
     private void ReturnToMenu() throws IOException {
         App.setRoot("View/Menu/MainMenu");
     }
 
     @FXML
     private void quit() throws IOException {
-
         Platform.exit();
-
     }
 
     // Save Menu
 
     @FXML
     private void StartNewGame() throws IOException {
-
         App.jogador.add(new Player());
-
         App.setRoot("View/Screen/StandBy");
     }
 

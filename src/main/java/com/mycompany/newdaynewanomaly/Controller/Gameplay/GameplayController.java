@@ -7,25 +7,33 @@ import com.mycompany.newdaynewanomaly.Utils.Randomizers;
 import com.mycompany.newdaynewanomaly.Utils.Timer;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class GameplayController {
 
+
+    @FXML private Button pcBtn;
+    @FXML private AnchorPane itemsOverlay;
+    @FXML private Label colaQtdLabel;
+    @FXML private Label bigColaQtdLabel;
+    @FXML private Label chipsQtdLabel;
+    @FXML private Button useColaBtn;
+    @FXML private Button useBigColaBtn;
+    @FXML private Button useChipsBtn;
+
     @FXML private ImageView pessoa;
+    @FXML private ImageView closingDoor;
     @FXML private Label speechPlayer;
     @FXML private Label speechCreature;
     @FXML private Label speechRadio;
@@ -50,9 +58,19 @@ public class GameplayController {
     @FXML private Button btnNormal;
     @FXML private Button btnAnomalia;
 
+    @FXML private Label glassesStatusLabel;
+    @FXML private Button useGlassesBtn;
+
+    @FXML private AnchorPane eyeOverlay;
+    @FXML private ImageView eyeImageView;
+
+    private static final float MAX_SANITY = 100f;
+
     private Entity entityAtual;
     private boolean verdictEscolhaAnomalia;
+
     private int anomalyNumber = 0;
+    private int MaxAnomalyNumber;
 
     private int questionsLeft = 2;
 
@@ -66,10 +84,14 @@ public class GameplayController {
 
     @FXML
     public void initialize() {
+
+        MaxAnomalyNumber = 3 + App.jogador.get(0).getCurrentDay();
+
         anomalyNumber = 0;
 
         Timer.TaskWait(1, () -> speechRadio.setVisible(true));
         Timer.TaskWait(5, () -> speechRadio.setVisible(false));
+        Timer.TaskWait(6, this::CnODoor);
 
         Timer.TaskWait(7, () -> {
             entityAtual = generateAnomaly();
@@ -88,7 +110,13 @@ public class GameplayController {
 
         questionsLeft = 2;
 
-        if (anomalyNumber >= 4) {
+        if (App.jogador.get(0).getSanity() <= 0) {
+
+            App.setRoot("View/Screen/YouLose");
+
+        }
+
+        if (anomalyNumber >= MaxAnomalyNumber) {
             endWork();
             return;
         }
@@ -97,6 +125,9 @@ public class GameplayController {
 
         entityAtual = generateAnomaly();
         anomalyNumber += 1;
+
+
+        Timer.TaskWait(0.5f, this::CnODoor);
 
         Timer.TaskWait(3, () -> {
             setImageAnomaly(entityAtual);
@@ -108,6 +139,35 @@ public class GameplayController {
     public void setImageAnomaly(Entity e) {
         String link = e.getLinkImage();
         pessoa.setImage(new Image(getClass().getResource(link).toExternalForm()));
+    }
+
+    @FXML
+    public void setDoorWork(String door) {
+
+        if (door == null || door.isEmpty()) {
+
+            closingDoor.setImage(null); // limpa a imagem
+            return;
+        }
+
+        URL resource = getClass().getResource(door);
+        if (resource == null) {
+            System.err.println("Imagem não encontrada: " + door);
+            return;
+        }
+
+        System.out.println(resource);
+        closingDoor.setImage(new Image(resource.toExternalForm()));
+    }
+
+    @FXML
+    public void CnODoor() {
+        String path = "/com/mycompany/newdaynewanomaly/Images/Rooms/ClosingDoor.gif";
+        URL test = getClass().getResource(path);
+        System.out.println("URL da porta: " + test); // null = não achou
+
+        setDoorWork(path);
+        Timer.TaskWait(3, () -> setDoorWork(""));
     }
 
     public Entity generateAnomaly() {
@@ -128,6 +188,8 @@ public class GameplayController {
     // -------------------------
 
     private void liberarBotoes() {
+
+        askBtn.setDisable(false);
         papersBtn.setVisible(true);
         askBtn.setVisible(true);
         verdictBtn.setVisible(true);
@@ -161,6 +223,7 @@ public class GameplayController {
         askNomeBtn.setVisible(!visible);
         askIdadeBtn.setVisible(!visible);
         askCidadeBtn.setVisible(!visible);
+
     }
 
     @FXML
@@ -174,10 +237,21 @@ public class GameplayController {
 
             mostrarPerguntaEResposta("Nome?", Randomizers.getRandomName(Randomizers.getRandomGender()));
 
+            if (questionsLeft == 0) {
+
+                askBtn.setDisable(true);
+
+            }
+
         } else {
 
             mostrarPerguntaEResposta("Nome?", entityAtual.getNome());
 
+            if (questionsLeft == 0) {
+
+                askBtn.setDisable(true);
+
+            }
         }
 
 
@@ -194,10 +268,21 @@ public class GameplayController {
 
             mostrarPerguntaEResposta("Idade?", String.valueOf(Randomizers.getRandomAge()));
 
+            if (questionsLeft == 0) {
+
+                askBtn.setDisable(true);
+
+            }
+
         } else {
 
             mostrarPerguntaEResposta("Idade?", String.valueOf(entityAtual.getIdade()));
 
+            if (questionsLeft == 0) {
+
+                askBtn.setDisable(true);
+
+            }
         }
 
 
@@ -214,10 +299,21 @@ public class GameplayController {
 
             mostrarPerguntaEResposta("Cidade de Origem?", Randomizers.getRandomCity());
 
+            if (questionsLeft == 0) {
+
+                askBtn.setDisable(true);
+
+            }
+
         } else {
 
             mostrarPerguntaEResposta("Cidade de Origem?", entityAtual.getCidade());
 
+            if (questionsLeft == 0) {
+
+                askBtn.setDisable(true);
+
+            }
         }
 
 
@@ -327,20 +423,18 @@ public class GameplayController {
 
         if (acertou) {
 
-            moneyEarned += 35;
+            int ganho = 5;
+            moneyEarned += ganho;
 
             int currentMoney = App.jogador.get(0).getMoney();
-            App.jogador.get(0).setMoney(currentMoney + 35);
+            App.jogador.get(0).setMoney(currentMoney + ganho);
 
         } else {
 
             float currentSanity = App.jogador.get(0).getSanity();
-            App.jogador.get(0).setSanity(currentSanity - 10);
+            App.jogador.get(0).setSanity(currentSanity - Randomizers.rollSanityNumber());
 
         }
-
-
-        Timer.TaskWait(1, () -> pessoa.setImage(new Image(getClass().getResource("").toExternalForm())) );
 
 
         resultados.add(new RoundResult(
@@ -367,5 +461,111 @@ public class GameplayController {
         verdictConfirmBtn.setVisible(false);
         btnNormal.setOpacity(1.0);
         btnAnomalia.setOpacity(1.0);
+    }
+
+    // -------------------------
+// AREA DE ITEMS (PC)
+// -------------------------
+
+    @FXML
+    public void openItems() {
+        atualizarQuantidadesItens();
+        itemsOverlay.setVisible(true);
+        FadeTransition ft = new FadeTransition(Duration.millis(250), itemsOverlay);
+        ft.setFromValue(0.0);
+        ft.setToValue(1.0);
+        ft.play();
+    }
+
+    @FXML
+    public void closeItems() {
+        FadeTransition ft = new FadeTransition(Duration.millis(200), itemsOverlay);
+        ft.setFromValue(1.0);
+        ft.setToValue(0.0);
+        ft.setOnFinished(e -> itemsOverlay.setVisible(false));
+        ft.play();
+    }
+
+    @FXML
+    public void useCola() {
+        var player = App.jogador.get(0);
+        if (player.getCola() <= 0) return;
+
+        player.setCola(player.getCola() - 1);
+        recuperarSanidade(10);
+        atualizarQuantidadesItens();
+    }
+
+    @FXML
+    public void useBigCola() {
+        var player = App.jogador.get(0);
+        if (player.getBigCola() <= 0) return;
+
+        player.setBigCola(player.getBigCola() - 1);
+        recuperarSanidade(20);
+        atualizarQuantidadesItens();
+    }
+
+    @FXML
+    public void useChips() {
+        var player = App.jogador.get(0);
+        if (player.getChips() <= 0) return;
+
+        player.setChips(player.getChips() - 1);
+        recuperarSanidade(20);
+        atualizarQuantidadesItens();
+    }
+
+    private void recuperarSanidade(float quantidade) {
+        var player = App.jogador.get(0);
+        float novaSanidade = Math.min(player.getSanity() + quantidade, MAX_SANITY);
+        player.setSanity(novaSanidade);
+    }
+
+    private void atualizarQuantidadesItens() {
+        var player = App.jogador.get(0);
+
+        colaQtdLabel.setText("x" + player.getCola());
+        bigColaQtdLabel.setText("x" + player.getBigCola());
+        chipsQtdLabel.setText("x" + player.getChips());
+
+        useColaBtn.setDisable(player.getCola() <= 0);
+        useBigColaBtn.setDisable(player.getBigCola() <= 0);
+        useChipsBtn.setDisable(player.getChips() <= 0);
+
+        boolean temOculos = player.isGlasses();
+        glassesStatusLabel.setText(temOculos ? "Disponível" : "Não possui");
+        useGlassesBtn.setDisable(!temOculos);
+    }
+
+    @FXML
+    public void useGlasses() {
+        var player = App.jogador.get(0);
+
+        if (!player.isGlasses()) {
+            return;
+        }
+
+        abrirVisaoOculos();
+    }
+
+    private void abrirVisaoOculos() {
+        String link = entityAtual.getEyes();
+        eyeImageView.setImage(new Image(getClass().getResource(link).toExternalForm()));
+
+        eyeOverlay.setVisible(true);
+        FadeTransition ft = new FadeTransition(Duration.millis(250), eyeOverlay);
+        ft.setFromValue(0.0);
+        ft.setToValue(1.0);
+        ft.play();
+    }
+
+    @FXML
+    public void closeEyeView() {
+        FadeTransition ft = new FadeTransition(Duration.millis(200), eyeOverlay);
+        ft.setFromValue(1.0);
+        ft.setToValue(0.0);
+        ft.setOnFinished(e -> eyeOverlay.setVisible(false));
+        ft.play();
     }
 }

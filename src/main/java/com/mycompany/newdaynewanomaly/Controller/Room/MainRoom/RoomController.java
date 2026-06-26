@@ -10,7 +10,7 @@ public class RoomController {
     @FXML
     private void switchToComputer() throws IOException {
 
-        App.setRoot("View/House/Computer");
+        App.setRoot("View/Screen/ComputerLoading");
 
     }
 

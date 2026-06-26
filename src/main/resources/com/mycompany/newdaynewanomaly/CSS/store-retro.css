@@ -1,0 +1,129 @@
+/* RETRO STORE THEME v2 - GeoCities / Old Web Vibes */
+
+/* Nota: a fonte de cada elemento já é definida diretamente no FXML
+   via <Font name="..."/>, então não definimos -fx-font-family aqui
+   para evitar conflito entre CSS e a fonte do FXML. */
+
+/* TabPane */
+.tab-pane {
+    -fx-tab-min-height: 42;
+    -fx-tab-max-height: 42;
+    -fx-padding: 0;
+    -fx-background-color: #000080;
+    -fx-border-color: #ff00ff;
+    -fx-border-width: 4;
+}
+
+.tab-pane:top .tab-header-area {
+    -fx-padding: 4 0 0 4;
+    -fx-background-color: #000080;
+    -fx-border-color: #00ffff;
+    -fx-border-width: 0 0 3 0;
+}
+
+.tab {
+    -fx-padding: 10 22 10 22;
+    -fx-background-color: #c0c0c0;
+    -fx-text-fill: #000080;
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+.tab:selected {
+    -fx-background-color: #00ff00;
+    -fx-border-color: #ff0000;
+    -fx-border-width: 2;
+    -fx-text-fill: #ff0000;
+}
+
+.tab:focused,
+.tab-pane:focused,
+.tab-header-area:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab:hover {
+    -fx-background-color: #ffff00;
+}
+
+/* AnchorPane - fundo "papel de parede" estilo web antigo */
+.anchor-pane {
+    -fx-background-color: #ccccff;
+    -fx-border-color: #000080;
+    -fx-border-width: 3;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #000080;
+}
+
+.header-label {
+    -fx-text-fill: #ff0000;
+    -fx-effect: dropshadow(gaussian, #ffff00, 1, 1.0, 1, 1);
+}
+
+/* Buttons - estilo "botão piscante" de site antigo */
+.button {
+    -fx-padding: 4 6 4 6;
+    -fx-background-color: linear-gradient(to bottom, #00ff00, #008000);
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+    -fx-border-color: #ff0000;
+    -fx-border-width: 2;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(255, 0, 255, 0.6), 4, 0.3, 0, 0);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffff00, #ff8000);
+    -fx-text-fill: #000000;
+    -fx-border-color: #00ffff;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #ff0000, #800000);
+    -fx-effect: none;
+}
+
+/* Group containers - bordas pontilhadas estilo tabela antiga */
+.group {
+    -fx-border-color: #ff00ff;
+    -fx-border-width: 2;
+    -fx-border-style: dashed;
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ImageView com moldura colorida */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(255, 0, 0, 0.5), 0, 0, 3, 3);
+}
+
+/* Box (molduras de itens) - estilo neon */
+.box {
+    -fx-border-color: #00ffff;
+    -fx-stroke-width: 4;
+    -fx-fill: transparent;
+}
+
+/* Scrollbar */
+.scroll-bar {
+    -fx-background-color: #000080;
+}
+
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #ff00ff;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:vertical .thumb:hover,
+.scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #00ff00;
+}

@@ -46,6 +46,8 @@
             </effect>
         </ImageView>
 
+      <ImageView fx:id="closingDoor" fitHeight="743.0" fitWidth="422.0" layoutX="684.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+
         <!-- BACKGROUND -->
         <ImageView fitHeight="962.0" fitWidth="1678.0" layoutX="-5.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -103,7 +105,7 @@
         <Button layoutX="1077.0" layoutY="436.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="128.0" text="Cidade" visible="false" />
 
         <!-- Papers -->
-        <Button fx:id="papersBtn" layoutX="760.0" layoutY="665.0" mnemonicParsing="false" onAction="#openPapers" prefHeight="86.0" prefWidth="264.0" text="Papers" visible="false">
+        <Button fx:id="papersBtn" layoutX="799.0" layoutY="665.0" mnemonicParsing="false" onAction="#openPapers" prefHeight="51.0" prefWidth="193.0" text="Papers" visible="false">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -199,6 +201,116 @@
                 <Button fx:id="verdictConfirmBtn" layoutX="220.0" layoutY="290.0" onAction="#onVerdictConfirm" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #3B6D11;                        -fx-text-fill: white;                        -fx-border-width: 0;" text="Confirmar" visible="false" />
 
             </AnchorPane>
+        </AnchorPane>
+
+        <!-- BOTÃO DE ACESSO AO PC -->
+
+        <!-- BOTÃO DE ACESSO AO PC -->
+        <Button fx:id="pcBtn" layoutX="246.0" layoutY="413.0" mnemonicParsing="false" onAction="#openItems" prefHeight="103.0" prefWidth="282.0" text="PC">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+
+        <!-- AREA DE ITEMS -->
+
+        <!-- OVERLAY DA AREA DE ITEMS -->
+        <!-- OVERLAY DA AREA DE ITEMS -->
+        <AnchorPane fx:id="itemsOverlay" layoutX="5.0" prefHeight="962.0" prefWidth="1678.0" style="-fx-background-color: rgba(0,0,0,0.65);" visible="false">
+            <children>
+                <AnchorPane layoutX="399.0" layoutY="246.0" prefHeight="470.0" prefWidth="880.0" style="-fx-background-color: #1a1a1a; -fx-border-color: #8B7355; -fx-border-width: 2;">
+
+                    <!-- Título -->
+                    <Label alignment="CENTER" layoutX="0" layoutY="15" prefWidth="880.0" text="ITENS" textFill="#8B7355">
+                        <font><Font name="Bernard MT Condensed" size="26.0" /></font>
+                    </Label>
+
+                    <!-- Fechar -->
+                    <Button layoutX="838.0" layoutY="10.0" onAction="#closeItems" prefHeight="28.0" prefWidth="32.0" style="-fx-background-color: #8B0000; -fx-text-fill: white; -fx-cursor: hand;" text="✕" />
+
+                    <!-- CARD COLA -->
+                    <AnchorPane layoutX="30.0" layoutY="90.0" prefHeight="370.0" prefWidth="190.0" style="-fx-background-color: #222222; -fx-border-color: #8B7355; -fx-border-width: 1.5;">
+                        <Label alignment="CENTER" layoutY="20.0" prefWidth="190.0" text="COLA" textFill="#cccccc">
+                            <font><Font name="Bernard MT Condensed" size="20.0" /></font>
+                        </Label>
+                        <Label fx:id="colaQtdLabel" alignment="CENTER" layoutY="55.0" prefWidth="190.0" text="x0" textFill="#97C459">
+                            <font><Font name="Felix Titling" size="16.0" /></font>
+                        </Label>
+                        <Label alignment="CENTER" layoutY="230.0" prefWidth="190.0" text="+10 Sanidade" textFill="#888888">
+                            <font><Font name="Felix Titling" size="13.0" /></font>
+                        </Label>
+                        <Button fx:id="useColaBtn" layoutX="20.0" layoutY="270.0" onAction="#useCola" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #0d1f0d; -fx-text-fill: #97C459; -fx-border-color: #3B6D11; -fx-cursor: hand;" text="Usar">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+                    </AnchorPane>
+
+                    <!-- CARD BIG COLA -->
+                    <AnchorPane layoutX="240.0" layoutY="90.0" prefHeight="370.0" prefWidth="190.0" style="-fx-background-color: #222222; -fx-border-color: #8B7355; -fx-border-width: 1.5;">
+                        <Label alignment="CENTER" layoutY="20.0" prefWidth="190.0" text="BIG COLA" textFill="#cccccc">
+                            <font><Font name="Bernard MT Condensed" size="20.0" /></font>
+                        </Label>
+                        <Label fx:id="bigColaQtdLabel" alignment="CENTER" layoutY="55.0" prefWidth="190.0" text="x0" textFill="#97C459">
+                            <font><Font name="Felix Titling" size="16.0" /></font>
+                        </Label>
+                        <Label alignment="CENTER" layoutY="230.0" prefWidth="190.0" text="+20 Sanidade" textFill="#888888">
+                            <font><Font name="Felix Titling" size="13.0" /></font>
+                        </Label>
+                        <Button fx:id="useBigColaBtn" layoutX="20.0" layoutY="270.0" onAction="#useBigCola" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #0d1f0d; -fx-text-fill: #97C459; -fx-border-color: #3B6D11; -fx-cursor: hand;" text="Usar">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+                    </AnchorPane>
+
+                    <!-- CARD CHIPS -->
+                    <AnchorPane layoutX="450.0" layoutY="90.0" prefHeight="370.0" prefWidth="190.0" style="-fx-background-color: #222222; -fx-border-color: #8B7355; -fx-border-width: 1.5;">
+                        <Label alignment="CENTER" layoutY="20.0" prefWidth="190.0" text="CHIPS" textFill="#cccccc">
+                            <font><Font name="Bernard MT Condensed" size="20.0" /></font>
+                        </Label>
+                        <Label fx:id="chipsQtdLabel" alignment="CENTER" layoutY="55.0" prefWidth="190.0" text="x0" textFill="#97C459">
+                            <font><Font name="Felix Titling" size="16.0" /></font>
+                        </Label>
+                        <Label alignment="CENTER" layoutY="230.0" prefWidth="190.0" text="+20 Sanidade" textFill="#888888">
+                            <font><Font name="Felix Titling" size="13.0" /></font>
+                        </Label>
+                        <Button fx:id="useChipsBtn" layoutX="20.0" layoutY="270.0" onAction="#useChips" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #0d1f0d; -fx-text-fill: #97C459; -fx-border-color: #3B6D11; -fx-cursor: hand;" text="Usar">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+                    </AnchorPane>
+
+                    <!-- CARD ÓCULOS -->
+                    <AnchorPane layoutX="660.0" layoutY="90.0" prefHeight="370.0" prefWidth="190.0" style="-fx-background-color: #222222; -fx-border-color: #8B7355; -fx-border-width: 1.5;">
+                        <Label alignment="CENTER" layoutY="20.0" prefWidth="190.0" text="ÓCULOS" textFill="#cccccc">
+                            <font><Font name="Bernard MT Condensed" size="20.0" /></font>
+                        </Label>
+                        <Label fx:id="glassesStatusLabel" alignment="CENTER" layoutY="55.0" prefWidth="190.0" text="Não possui" textFill="#97C459">
+                            <font><Font name="Felix Titling" size="14.0" /></font>
+                        </Label>
+                        <Label alignment="CENTER" layoutY="230.0" prefWidth="190.0" text="Ver olho da entidade" textFill="#888888" wrapText="true">
+                            <font><Font name="Felix Titling" size="13.0" /></font>
+                        </Label>
+                        <Button fx:id="useGlassesBtn" layoutX="20.0" layoutY="270.0" onAction="#useGlasses" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #0d1f0d; -fx-text-fill: #97C459; -fx-border-color: #3B6D11; -fx-cursor: hand;" text="Usar">
+                            <cursor><Cursor fx:constant="HAND" /></cursor>
+                        </Button>
+                    </AnchorPane>
+
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+
+        <!-- OVERLAY DA VISÃO DOS ÓCULOS -->
+        <AnchorPane fx:id="eyeOverlay" layoutX="-5.0" layoutY="-10.0" prefHeight="962.0" prefWidth="1678.0" style="-fx-background-color: rgba(0,0,0,0.75);" visible="false">
+            <children>
+                <AnchorPane layoutX="639.0" layoutY="231.0" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #1a1a1a; -fx-border-color: #8B7355; -fx-border-width: 2;">
+
+                    <Label alignment="CENTER" layoutX="0" layoutY="10" prefWidth="400.0" text="VISÃO DOS ÓCULOS" textFill="#8B7355">
+                        <font><Font name="Bernard MT Condensed" size="20.0" /></font>
+                    </Label>
+
+                    <Button layoutX="362.0" layoutY="8.0" onAction="#closeEyeView" prefHeight="26.0" prefWidth="30.0" style="-fx-background-color: #8B0000; -fx-text-fill: white; -fx-cursor: hand;" text="✕" />
+
+                    <ImageView fx:id="eyeImageView" fitHeight="400.0" fitWidth="360.0" layoutX="20.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
+
+                </AnchorPane>
+            </children>
         </AnchorPane>
 
     </AnchorPane>

@@ -1,3 +1,4 @@
+/* ===== SCROLL PANE (existente) ===== */
 .scroll-pane {
     -fx-background: transparent;
     -fx-background-color: black;
@@ -15,4 +16,95 @@
 .scroll-pane .scroll-bar:vertical,
 .scroll-pane .scroll-bar:horizontal {
     -fx-opacity: 0;
+}
+
+/* ===== BOTÕES DE CONVERSA — estilo anos 90/2000 ===== */
+
+/* Base compartilhada entre todos os ask-buttons */
+#askBtn,
+#askNomeBtn,
+#askIdadeBtn,
+#askCidadeBtn,
+#pcBtn,
+#papersBtn {
+    -fx-background-color: #d4c9a8;
+    -fx-text-fill: #1a1a1a;
+    -fx-border-color: #ffffff #888877 #888877 #ffffff;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 4 10 4 10;
+    -fx-cursor: hand;
+    -fx-font-family: "MS Sans Serif";
+    -fx-font-size: 13px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.55), 3, 0, 2, 2);
+}
+
+/* Hover: afunda levemente, como Win95 */
+#askBtn:hover,
+#askNomeBtn:hover,
+#askIdadeBtn:hover,
+#askCidadeBtn:hover,
+#pcBtn:hover,
+#papersBtn:hover {
+    -fx-background-color: #c8bc9a;
+    -fx-border-color: #888877 #ffffff #ffffff #888877;
+}
+
+/* Pressed: inverte a borda — efeito de clique clássico */
+#askBtn:pressed,
+#askNomeBtn:pressed,
+#askIdadeBtn:pressed,
+#askCidadeBtn:pressed,
+#pcBtn:pressed,
+#papersBtn:pressed {
+    -fx-background-color: #b8ad8e;
+    -fx-border-color: #555544 #ddddcc #ddddcc #555544;
+    -fx-padding: 5 9 3 11;
+}
+
+/* ===== ASKBTN / PCBTN / PAPERSBTN — botões de ação principal ===== */
+#askBtn,
+#pcBtn,
+#papersBtn {
+    -fx-background-color: linear-gradient(to bottom, #e8dfc0, #c8b98a);
+    -fx-font-size: 14px;
+    -fx-font-family: "Bernard MT Condensed";
+    -fx-text-fill: #2a1f0a;
+    -fx-border-color: #fffaee #7a6a3a #7a6a3a #fffaee;
+    -fx-border-width: 2.5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.7), 5, 0, 2, 3);
+}
+
+/* ===== BOTÕES DE SUB-PERGUNTA (Nome, Idade, Cidade) ===== */
+/* Aparência de opções de diálogo de RPG/adventure game 90s */
+#askNomeBtn,
+#askIdadeBtn,
+#askCidadeBtn {
+    -fx-background-color: linear-gradient(to bottom, #1a2e1a, #0d1a0d);
+    -fx-text-fill: #a8e06a;
+    -fx-border-color: #4a7a1a #1a3a0a #1a3a0a #4a7a1a;
+    -fx-border-width: 2;
+    -fx-font-family: "Felix Titling";
+    -fx-font-size: 11px;
+    -fx-padding: 6 12 6 12;
+    -fx-effect: dropshadow(three-pass-box, #00ff0044, 6, 0.3, 0, 0);
+}
+
+#askNomeBtn:hover,
+#askIdadeBtn:hover,
+#askCidadeBtn:hover {
+    -fx-background-color: linear-gradient(to bottom, #2a4a1a, #162a0a);
+    -fx-text-fill: #c8ff88;
+    -fx-border-color: #6aaa2a #2a5a0a #2a5a0a #6aaa2a;
+    -fx-effect: dropshadow(three-pass-box, #00ff0077, 8, 0.4, 0, 0);
+}
+
+#askNomeBtn:pressed,
+#askIdadeBtn:pressed,
+#askCidadeBtn:pressed {
+    -fx-background-color: #0a1a0a;
+    -fx-text-fill: #88cc44;
+    -fx-border-color: #1a3a0a #4a7a1a #4a7a1a #1a3a0a;
+    -fx-padding: 7 11 5 13;
 }

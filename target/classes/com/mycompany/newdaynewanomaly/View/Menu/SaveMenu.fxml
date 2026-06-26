@@ -12,70 +12,34 @@
 
 <AnchorPane style="-fx-background-color: #2c2c2a;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Menu.PrimaryController">
 
-    <!-- VBox grudado nas 4 bordas = ocupa a tela toda -->
     <VBox alignment="CENTER" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-
-
-
 
         <!-- Título -->
         <Label alignment="CENTER" prefHeight="67.0" prefWidth="959.0" text="NEW DAY NEW ANOMALY" textFill="RED">
-
-            <font>
-                <Font name="Century" size="54.0" />
-            </font>
-
-            <effect>
-                <Reflection fraction="0.87" topOpacity="0.65" />
-            </effect>
-
-            <VBox.margin>
-                <Insets bottom="60.0" />   <!-- ← espaço entre título e linha -->
-            </VBox.margin>
-
+            <font><Font name="Century" size="54.0" /></font>
+            <effect><Reflection fraction="0.87" topOpacity="0.65" /></effect>
+            <VBox.margin><Insets bottom="60.0" /></VBox.margin>
         </Label>
-
-
-
-
-
 
         <!-- Linha separadora -->
         <Line endX="398.0" startX="-100.0" stroke="RED" strokeWidth="2.0" />
 
-
-
-
-
-
-
-
-
-        <!-- Start New Game -->
+        <!-- NEW GAME -->
         <Button onAction="#StartNewGame" prefHeight="44.0" prefWidth="175.0" text="NEW GAME">
-
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-
-            <font>
-                <Font name="Felix Titling" size="22.0" />
-            </font>
-
+            <cursor><Cursor fx:constant="HAND" /></cursor>
+            <font><Font name="Felix Titling" size="22.0" /></font>
         </Button>
 
+        <!-- SAVES -->
+        <Button onAction="#LoadSaves" prefHeight="41.0" prefWidth="120.0" text="Saves">
+            <cursor><Cursor fx:constant="HAND" /></cursor>
+            <font><Font name="Felix Titling" size="21.0" /></font>
+        </Button>
 
-        <!-- SAVES / ONGOING -->
-        <Button onAction="#Credits" prefHeight="41.0" prefWidth="120.0" text="Saves">
-
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-
-            <font>
-                <Font name="Felix Titling" size="21.0" />
-            </font>
-
+        <!-- BACK -->
+        <Button onAction="#ReturnToMenu" prefHeight="41.0" prefWidth="120.0" text="Back">
+            <cursor><Cursor fx:constant="HAND" /></cursor>
+            <font><Font name="Felix Titling" size="21.0" /></font>
         </Button>
 
     </VBox>

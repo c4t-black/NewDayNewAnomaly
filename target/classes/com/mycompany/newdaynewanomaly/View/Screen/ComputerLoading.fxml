@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="652.0" prefWidth="630.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.newdaynewanomaly.Controller.Room.Computer.LoadingComputer">
+    <children>
+        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="746.0" fitWidth="1363.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/Rooms/ComputerTurningOn.gif" />
+               </image>
+            </ImageView>
+         </children></VBox>
+    </children>
+</AnchorPane>

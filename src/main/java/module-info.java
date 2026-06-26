@@ -2,6 +2,10 @@ module com.mycompany.newdaynewanomaly {
     requires javafx.controls;
     requires javafx.fxml;
 
+    // JDBC – necessário para conectar ao PostgreSQL via DriverManager / Connection
+    requires java.sql;
+    requires jdk.compiler;
+
     opens com.mycompany.newdaynewanomaly to javafx.fxml;
     exports com.mycompany.newdaynewanomaly;
 
@@ -16,4 +20,6 @@ module com.mycompany.newdaynewanomaly {
 
     exports com.mycompany.newdaynewanomaly.Controller.Gameplay;
     opens com.mycompany.newdaynewanomaly.Controller.Gameplay to javafx.fxml;
+
+    exports com.mycompany.newdaynewanomaly.DAO;
 }

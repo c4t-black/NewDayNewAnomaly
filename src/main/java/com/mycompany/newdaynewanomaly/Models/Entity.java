@@ -17,6 +17,8 @@ public class Entity {
     private int idade;
     private String cidade;
 
+    private String eyes;
+
 
     public String getLinkImage() {
         return LinkImage;
@@ -66,6 +68,14 @@ public class Entity {
         this.cidade = cidade;
     }
 
+    public String getEyes() {
+        return eyes;
+    }
+
+    public void setEyes(String eyes) {
+        this.eyes = eyes;
+    }
+
     public Entity(boolean isAnomaly) {
 
         this.isAnomaly = isAnomaly;
@@ -109,6 +119,9 @@ public class Entity {
 
             }
 
+            this.eyes = Randomizers.getRandomEye(this.gender, Randomizers.getRandomChanceEasy(), true);
+
+
         }
 
         if (isAnomaly == false) {
@@ -123,6 +136,9 @@ public class Entity {
 
 
             this.LinkImage = Randomizers.getRandomPerson(this.gender);
+
+            this.eyes = Randomizers.getRandomEye(this.gender, Randomizers.getRandomChance(), false);
+
 
         }
 
