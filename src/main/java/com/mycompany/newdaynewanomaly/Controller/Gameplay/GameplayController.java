@@ -84,6 +84,7 @@ public class GameplayController {
 
     @FXML
     public void initialize() {
+        
 
         MaxAnomalyNumber = 3 + App.jogador.get(0).getCurrentDay();
 

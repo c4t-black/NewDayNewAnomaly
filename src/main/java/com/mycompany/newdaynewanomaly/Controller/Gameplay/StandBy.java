@@ -15,10 +15,20 @@ public class StandBy {
     private Label DayText;
 
     public String currentDay;
+    
     @FXML
     private void startGame () throws IOException {
 
-        App.setRoot("View/House/Room");
+        int dia = App.jogador.get(0).getCurrentDay();
+
+        if (dia > 0 && dia % 10 == 0) {
+
+            App.setRoot("View/Screen/Boss");
+
+        } else {
+
+            App.setRoot("View/House/Room");
+        }
 
     }
 

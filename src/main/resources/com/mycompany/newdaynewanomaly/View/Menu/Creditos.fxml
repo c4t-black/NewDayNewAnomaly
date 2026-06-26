@@ -40,7 +40,7 @@
             <Font name="Bernard MT Condensed" size="25.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="86.0" prefWidth="464.0" text="-{ DAVI PALHARES DE BARROS VILARIM }-" textFill="WHITE">
+      <Label alignment="TOP_CENTER" contentDisplay="TOP" prefHeight="86.0" prefWidth="559.0" text="-{ DAVI PALHARES DE BARROS VILARIM }-" textFill="WHITE">
          <font>
             <Font name="Bernard MT Condensed" size="25.0" />
          </font>
@@ -55,7 +55,7 @@
             <Font name="Bernard MT Condensed" size="26.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Voltar" onAction="#ReturnToMenu">
+      <Button mnemonicParsing="false" onAction="#ReturnToMenu" prefHeight="26.0" prefWidth="91.0" text="Voltar">
          <font>
             <Font name="Baskerville Old Face" size="13.0" />
          </font>

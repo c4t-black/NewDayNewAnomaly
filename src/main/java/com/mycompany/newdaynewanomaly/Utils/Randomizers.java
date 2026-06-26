@@ -60,7 +60,7 @@ public class Randomizers {
 
         if (gender == Gender.Masculino) {
 
-            int number = random.nextInt(25) + 1;
+            int number = random.nextInt(24) + 1;
 
             String link = "/com/mycompany/newdaynewanomaly/Images/Entities/Man/homem" + number + ".png";
 

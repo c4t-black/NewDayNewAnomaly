@@ -24,7 +24,7 @@ public class ConnectionFactory {
     private static final int    PORT     = 5432;
     private static final String DATABASE = "newdaynewanomaly";
     private static final String USER     = "postgres";
-    private static final String PASSWORD = "postgres";
+    private static final String PASSWORD = "postgresql";
 
     private static final String URL =
             "jdbc:postgresql://" + HOST + ":" + PORT + "/" + DATABASE
