@@ -1,5 +1,8 @@
 Banco de Dados:
 
+ALUNOS: LUIZ GABRIEL LIMA DE SOUZA && DAVI PALHARES DE BARROS VILARIM
+
+
 -- ============================================================
 --  NewDayNewAnomaly – Script de criação do banco de dados
 --  Execute como superusuário PostgreSQL:
